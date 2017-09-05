@@ -1,6 +1,10 @@
-// requre nessary libs
+// debug
+process.env.DEBUG = 'actions-on-google:*';
+
+// require necessary libs
 const functions = require('firebase-functions');
 const fs = require('fs');
+const App = require('actions-on-google').ApiAiApp;
 
 // read & modify file to my format
 const quoteSet1 = JSON
