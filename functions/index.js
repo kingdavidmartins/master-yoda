@@ -4,11 +4,11 @@ const fs = require('fs');
 
 // read & modify file to my format
 const quoteSet1 = JSON
-                    .parse(fs.readFileSync('quotesJSON.txt', 'utf8'))
+                    .parse(fs.readFileSync(__dirname + '/quotesJSON.txt', 'utf8'))
                     .map(quote => quote.quoteText);
 
 // read & modify file to my format
-const quoteSet2 = fs.readFileSync('quotesJSON2.txt', 'utf8')
+const quoteSet2 = fs.readFileSync(__dirname + '/quotesJSON2.txt', 'utf8')
                     .trim()
                     .split('\n')
                     .map(x => JSON.parse(x)[0]);
