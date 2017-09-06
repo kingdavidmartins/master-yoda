@@ -89,11 +89,11 @@ const generateQuote = () => {
      return title.join(' ');
    };
 
-  let newTitle = make_quote(1 + Math.floor(1 * Math.random()));
+  let newTitle = make_quote(2 + Math.floor(1 * Math.random()));
   return newTitle;
 
 }
-
+console.log(generateQuote());
 exports.zenMaster = functions.https.onRequest((request, response) => {
 
  const app = new App({ request, response });
@@ -111,9 +111,9 @@ exports.zenMaster = functions.https.onRequest((request, response) => {
         app.ask(
           app
             .buildRichResponse()
-            .addSimpleResponse(generateQuote()));
+            .addSimpleResponse('Clear your mind you must. Teach you I shall. Meditate on this. You will. '+ generateQuote()));
       } else {
-        app.ask(generateQuote());
+        app.ask('Clear your mind you must. Teach you I shall. Meditate on this. You will. '+ generateQuote());
       }
 
   }
