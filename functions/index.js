@@ -84,5 +84,32 @@ const generateQuote = () => {
 }
 
 exports.zenMaster = functions.https.onRequest((request, response) => {
- response.send(`Zen Master says: ${generateQuote()}`);
+
+ const app = new App({ request, response });
+
+  // uncomment to log request.header & request.body
+  // console.log('Request headers: ' + JSON.stringify(request.headers));
+  // console.log('Request body: ' + JSON.stringify(request.body));
+
+  // Say a quote
+  function fallBack (app) {
+
+      // Conversation repair is handled in API.AI, but this is a safeguard
+      if (app.hasSurfaceCapability(app.SurfaceCapabilities.SCREEN_OUTPUT)) {
+
+        app.ask(
+          app
+            .buildRichResponse()
+            .addSimpleResponse(generateQuote()));
+      } else {
+        app.ask(generateQuote());
+      }
+
+  }
+
+  let actionMap = new Map();
+  actionMap.set('input.unknown', fallBack);
+
+  app.handleRequest(actionMap);
+
 });
