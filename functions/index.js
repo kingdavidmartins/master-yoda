@@ -17,6 +17,13 @@ const quoteSet2 = fs.readFileSync(__dirname + '/quotesJSON2.txt', 'utf8')
                     .split('\n')
                     .map(x => JSON.parse(x)[0]);
 
+// read & modify file to my format
+const quoteSet3 = fs.readFileSync(__dirname + '/quotesJSON3.txt', 'utf8')
+                    .trim()
+                    .split('\n')
+                    .map(quote => quote.slice(1, -3));
+
+// console.log(quoteSet3);
 
 // init newQuoteSet so I can push new quote files if needed
 let newQuoteSet = [];
@@ -27,6 +34,10 @@ quoteSet1
 
 // push quotes from quoteSet2 to newQuoteSet
 quoteSet2
+  .forEach(quote => newQuoteSet.push(quote));
+
+// push quotes from quoteSet3 to newQuoteSet
+quoteSet3
   .forEach(quote => newQuoteSet.push(quote));
 
 const generateQuote = () => {
