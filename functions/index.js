@@ -29,16 +29,13 @@ const quoteSet3 = fs.readFileSync(__dirname + '/quotesJSON3.txt', 'utf8')
 let newQuoteSet = [];
 
 // push quotes from quoteSet1 to newQuoteSet
-quoteSet1
-  .forEach(quote => newQuoteSet.push(quote));
+newQuoteSet.push(...quoteSet1);
 
 // push quotes from quoteSet2 to newQuoteSet
-quoteSet2
-  .forEach(quote => newQuoteSet.push(quote));
+newQuoteSet.push(...quoteSet2);
 
 // push quotes from quoteSet3 to newQuoteSet
-quoteSet3
-  .forEach(quote => newQuoteSet.push(quote));
+newQuoteSet.push(...quoteSet3);
 
 const generateQuote = () => {
 
@@ -93,7 +90,7 @@ const generateQuote = () => {
   return newTitle;
 
 }
-console.log(generateQuote());
+
 exports.zenMaster = functions.https.onRequest((request, response) => {
 
  const app = new App({ request, response });
@@ -111,9 +108,15 @@ exports.zenMaster = functions.https.onRequest((request, response) => {
         app.ask(
           app
             .buildRichResponse()
-            .addSimpleResponse('Clear your mind you must. Teach you I shall. Meditate on this. You will. '+ generateQuote()));
+            .addSimpleResponse(`<speak>Clear your mind you must. <break time="350ms"/> Teach you I shall. <break time="350ms"/> Meditate on this. You will. <break time="800ms"/> ${generateQuote()}.</speak>`)
+            .addSimpleResponse(`<speak><break time="800ms"/> Honor life by living. <break time="350ms"/> Follow my words. <break time="350ms"/> Prosper. </speak>`)
+            .addSimpleResponse(`<speak><break time="1500ms"/> Anything else you seek. My padawan. </speak>`));
+
       } else {
-        app.ask('Clear your mind you must. Teach you I shall. Meditate on this. You will. '+ generateQuote());
+        app.ask(`<speak>Clear your mind you must. <break time="350ms"/> Teach you I shall. <break time="350ms"/> \
+        Meditate on this. You will. <break time="800ms"/> ${generateQuote()}. \
+        <break time="800ms"/>Honor life by living. <break time="350ms"/> Follow my words. <break time="350ms"/> Prosper. \
+        <break time="1500ms"/> Anything else you seek. My padawan</speak>`);
       }
 
   }
