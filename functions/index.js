@@ -79,7 +79,7 @@ const generateQuote = () => {
        }
      }
 
-     if (title.length < min_length) {
+     if (title.length < min_length || title.length < 10) {
        return make_quote(min_length);
      }
 
@@ -90,7 +90,7 @@ const generateQuote = () => {
   return newTitle;
 
 }
-
+console.log(generateQuote());
 exports.zenMaster = functions.https.onRequest((request, response) => {
 
  const app = new App({ request, response });
@@ -108,8 +108,7 @@ exports.zenMaster = functions.https.onRequest((request, response) => {
         app.ask(
           app
             .buildRichResponse()
-            .addSimpleResponse(`<speak>Clear your mind you must. <break time="350ms"/> Teach you I shall. <break time="350ms"/> Meditate on this. You will. <break time="800ms"/> ${generateQuote()}.</speak>`)
-            .addSimpleResponse(`<speak><break time="800ms"/> Honor life by living. <break time="350ms"/> Follow my words. <break time="350ms"/> Prosper. </speak>`)
+            .addSimpleResponse(`<speak>Clear your mind you must. <break time="350ms"/> Teach you I shall. <break time="350ms"/> Meditate on this. You will. <break time="800ms"/> ${generateQuote()}. <break time="350ms"/> Mighty and strong you are. <break time="350ms"/> Believe in yourself you must. <break time="800ms"/> Honor life by living. <break time="350ms"/> Follow my words. <break time="350ms"/> Prosper.</speak>`)
             .addSimpleResponse(`<speak><break time="1500ms"/> Anything else you seek. My padawan. </speak>`));
 
       } else {
