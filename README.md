@@ -23,7 +23,7 @@ My results suggest that generate.js was able to effectively model and observe th
 
 ## *Ok Google, Speak to Master Yoda*
 
-![Alt Text](https://imgur.com/a/cQBLV)
+![Alt Text](https://i.imgur.com/1REEDbg.jpg)
 
 ### *Next Steps*
 
