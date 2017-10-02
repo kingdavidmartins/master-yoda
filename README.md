@@ -21,19 +21,9 @@ I'm interested in learning more about conversational UI & NLP because I believe 
 
 My results suggest that generate.js was able to effectively model and observe the created state using Markov Chains, which then made it possible for the system to get the probability of each word and it's successor fairly easily. Thus making sentence/title generation from large datasets accurate and efficient. -->
 
-#### *Example*
+#### *Ok Google, Speak to Master Yoda*
 
-**User:** 'Ok Google speak to Master Yoda'
-
-**Master Yoda:** 'Help you I shall. Enlighten you I will. What troubles you my little padawan?'
-
-**User:** 'Any advice master? I don't know what to do'
-
-**Master Yoda:** 'Clear your mind you must. Teach you I shall. Meditate on this. You will. It is to say, and Virtue is sure there quickly. Do not lose your motivation because your job didn't last. Well, there's nothing you can do.. Mighty and strong you are. Believe in yourself you must. Honor life by living. Follow my words. Prosper.'
-
-**User:** 'Thank you, means alot. Talk to you later'
-
-**Master Yoda:** 'Fearless and relentless you shall become. Wise and honest I am. See you again I shall.'
+![Alt Text](https://i.stack.imgur.com/Oo6dl.png)
 
 ### *Next Steps*
 
