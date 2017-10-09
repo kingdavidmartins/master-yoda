@@ -23,8 +23,6 @@ const quoteSet3 = fs.readFileSync(__dirname + '/quotesJSON3.txt', 'utf8')
                     .split('\n')
                     .map(quote => quote.slice(1, -3));
 
-// console.log(quoteSet3);
-
 // init newQuoteSet so I can push new quote files if needed
 let newQuoteSet = [];
 
@@ -90,7 +88,7 @@ const generateQuote = () => {
   return newTitle;
 
 }
-console.log(generateQuote());
+
 exports.zenMaster = functions.https.onRequest((request, response) => {
 
  const app = new App({ request, response });
