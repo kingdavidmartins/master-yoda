@@ -98,7 +98,7 @@ exports.zenMaster = functions.https.onRequest((request, response) => {
   // console.log('Request body: ' + JSON.stringify(request.body));
 
   // Say a quote
-  function fallBack (app) {
+  let fallBack = (app) => {
 
       // Conversation repair is handled in API.AI, but this is a safeguard
       if (app.hasSurfaceCapability(app.SurfaceCapabilities.SCREEN_OUTPUT)) {
